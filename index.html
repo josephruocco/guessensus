@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guessensus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Guess the consensus, not the truth</p>
+          <h1>Guessensus</h1>
+          <p class="lede">
+            One weird thing per day. Your job is to predict what most people
+            would call it first.
+          </p>
+        </div>
+        <div class="hero-card">
+          <p class="hero-card-label">Categories in rotation</p>
+          <ul class="token-list" id="category-list"></ul>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel panel-featured" id="daily-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Today’s round</p>
+              <h2 id="daily-title">Loading</h2>
+            </div>
+            <div class="date-pill" id="today-date"></div>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-visual" id="artifact-visual" aria-hidden="true"></div>
+            <div class="artifact-copy">
+              <p class="artifact-category" id="artifact-category"></p>
+              <p class="artifact-name" id="artifact-name"></p>
+              <p class="artifact-description" id="artifact-description"></p>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <p class="prompt-label">Prompt</p>
+            <p class="prompt-text" id="daily-prompt"></p>
+          </div>
+
+          <form id="guess-form" class="options-grid"></form>
+
+          <div class="action-row">
+            <button class="button button-primary" id="submit-guess">Lock guess</button>
+            <button class="button button-secondary" id="reset-guess" type="button">
+              Pick again
+            </button>
+          </div>
+
+          <div class="result-box hidden" id="result-box" aria-live="polite"></div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="panel">
+            <p class="section-kicker">Stats</p>
+            <h2>Your run</h2>
+            <div class="stat-grid">
+              <div class="stat-card">
+                <span class="stat-value" id="score-total">0</span>
+                <span class="stat-label">Points</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-value" id="correct-total">0</span>
+                <span class="stat-label">Top hits</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-value" id="streak-total">0</span>
+                <span class="stat-label">Streak</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <p class="section-kicker">How tomorrow works</p>
+            <h2>Blind seeding</h2>
+            <ol class="rule-list">
+              <li>You label a bundle of future prompts, not one public target.</li>
+              <li>Only one item from old bundles gets selected later.</li>
+              <li>Selection happens after a delay, so direct rigging is harder.</li>
+            </ol>
+          </section>
+        </aside>
+      </main>
+
+      <section class="panel seed-panel">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Help seed future rounds</p>
+            <h2>Label tomorrow’s hidden pool</h2>
+          </div>
+          <div class="queue-pill" id="queue-pill">0 queued bundles</div>
+        </div>
+
+        <p class="seed-intro">
+          You are not voting on a known prompt. You are labeling a mixed bundle
+          that becomes eligible a few days later.
+        </p>
+
+        <div class="seed-grid" id="seed-grid"></div>
+
+        <div class="action-row">
+          <button class="button button-primary" id="save-bundle" type="button">
+            Save bundle to queue
+          </button>
+          <button class="button button-secondary" id="reroll-bundle" type="button">
+            Reroll bundle
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
