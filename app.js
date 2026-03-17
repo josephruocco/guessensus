@@ -232,6 +232,7 @@ function renderDailyRound() {
   const image = document.getElementById("artifact-image");
   const form = document.getElementById("guess-form");
   const datePill = document.getElementById("today-date");
+  const asset = state.assetManifest[item.id];
 
   document.getElementById("daily-title").textContent = "Guess the popular wrong answer";
   document.getElementById("artifact-category").textContent = item.visualHint;
@@ -246,6 +247,7 @@ function renderDailyRound() {
 
   image.src = resolveItemImage(item, style);
   image.alt = `${item.category} picture round`;
+  renderAssetMeta(asset);
 
   form.innerHTML = "";
   item.consensus.forEach((option, index) => {
@@ -268,6 +270,23 @@ function renderDailyRound() {
       state.selectedGuess = target.value;
     }
   });
+}
+
+function renderAssetMeta(asset) {
+  const meta = document.getElementById("asset-meta");
+  const attribution = document.getElementById("asset-attribution");
+  const sourceLink = document.getElementById("asset-source-link");
+
+  if (!asset || !asset.image) {
+    meta.classList.add("hidden");
+    attribution.textContent = "";
+    sourceLink.removeAttribute("href");
+    return;
+  }
+
+  attribution.textContent = `${asset.attribution} License: ${asset.license}.`;
+  sourceLink.href = asset.sourceUrl;
+  meta.classList.remove("hidden");
 }
 
 function renderStats() {
