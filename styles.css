@@ -125,9 +125,10 @@ h2 {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) - 6px);
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+}
+
+.title-block {
+  margin-bottom: 1rem;
 }
 
 .artifact-visual {
