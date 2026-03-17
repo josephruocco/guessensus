@@ -16,6 +16,7 @@ repo without recording where they came from and what license they use.
 ## Folder layout
 
 - `assets/manifest.json`: metadata registry for all sourced images
+- `assets/manifest.js`: browser-readable copy so the app works from `file://`
 - `assets/images/`: local image files used by the app
 
 ## Suggested sources

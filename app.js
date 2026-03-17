@@ -403,6 +403,14 @@ async function bootstrap() {
 }
 
 async function loadAssetManifest() {
+  if (window.GUESSENSUS_ASSET_MANIFEST) {
+    return Object.fromEntries(
+      (window.GUESSENSUS_ASSET_MANIFEST.assets || [])
+        .filter((asset) => asset.id)
+        .map((asset) => [asset.id, asset]),
+    );
+  }
+
   try {
     const response = await fetch("./assets/manifest.json");
     if (!response.ok) {
