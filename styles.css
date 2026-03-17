@@ -44,19 +44,16 @@ input {
 }
 
 .hero,
-.layout,
-.seed-panel {
+.single-column {
   margin-top: 1rem;
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.7fr);
-  gap: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-copy,
-.hero-card,
 .panel {
   background: var(--paper);
   backdrop-filter: blur(14px);
@@ -67,11 +64,8 @@ input {
 
 .hero-copy {
   padding: 2rem;
-}
-
-.hero-card {
-  padding: 1.25rem;
-  align-self: stretch;
+  width: min(760px, 100%);
+  text-align: center;
 }
 
 .eyebrow,
@@ -113,16 +107,6 @@ h2 {
   color: var(--muted);
 }
 
-.token-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  list-style: none;
-  margin: 1rem 0 0;
-  padding: 0;
-}
-
-.token-list li,
 .date-pill,
 .queue-pill {
   padding: 0.5rem 0.8rem;
@@ -132,10 +116,9 @@ h2 {
   font-size: 0.9rem;
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.72fr);
-  gap: 1rem;
+.single-column {
+  display: flex;
+  justify-content: center;
 }
 
 .panel {
@@ -146,9 +129,8 @@ h2 {
   padding: 1.5rem;
 }
 
-.sidebar {
-  display: grid;
-  gap: 1rem;
+.single-card {
+  width: min(860px, 100%);
 }
 
 .panel-header {
@@ -165,25 +147,31 @@ h2 {
   border-radius: calc(var(--radius) - 6px);
   padding: 1rem;
   display: grid;
-  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
 .artifact-visual {
-  min-height: 220px;
+  min-height: 320px;
   border-radius: 18px;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.7), transparent 22%),
-    linear-gradient(135deg, var(--accent), var(--accent-deep));
-  display: grid;
-  place-items: center;
-  font-size: clamp(3rem, 7vw, 5rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 241, 0.65);
+}
+
+.artifact-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: block;
+  object-fit: cover;
 }
 
 .artifact-name {
   font-size: clamp(1.5rem, 3vw, 2.4rem);
   font-family: "Fraunces", serif;
   margin: 0.25rem 0 0.75rem;
+  max-width: 18ch;
 }
 
 .prompt-box {
@@ -314,65 +302,10 @@ h2 {
   font-family: "Fraunces", serif;
 }
 
-.rule-list {
-  margin: 1rem 0 0;
-  padding-left: 1.1rem;
-}
-
-.seed-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 1rem;
-}
-
-.seed-card {
-  padding: 1rem;
-}
-
-.seed-card-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: start;
-}
-
-.seed-card h3 {
-  margin: 0.3rem 0 0;
-  font-family: "Fraunces", serif;
-  font-size: 1.3rem;
-}
-
-.seed-card p {
-  color: var(--muted);
-}
-
-.chip-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 0.8rem;
-}
-
-.chip {
-  border: 1px solid var(--line);
-  background: #fffaf1;
-  color: var(--ink);
-  border-radius: 999px;
-  padding: 0.45rem 0.75rem;
-  cursor: pointer;
-}
-
-.chip.is-selected {
-  background: var(--ink);
-  color: #fffaf1;
-  border-color: var(--ink);
-}
-
 @media (max-width: 960px) {
   .hero,
-  .layout,
-  .seed-grid,
   .artifact-card {
-    grid-template-columns: 1fr;
+    display: block;
   }
 
   .stat-grid,
