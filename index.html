@@ -41,7 +41,18 @@
             <p class="prompt-text" id="daily-prompt"></p>
           </div>
 
-          <form id="guess-form" class="options-grid"></form>
+          <form id="guess-form" class="guess-form">
+            <label class="guess-label" for="guess-input">Your answer</label>
+            <input
+              class="guess-input"
+              id="guess-input"
+              name="guess"
+              type="text"
+              maxlength="80"
+              autocomplete="off"
+              placeholder="Type what most people would call it"
+            />
+          </form>
 
           <div class="action-row">
             <button class="button button-primary" id="submit-guess">Lock guess</button>

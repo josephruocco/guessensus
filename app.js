@@ -21,10 +21,10 @@ const ITEMS = [
     description: "No title, no taxonomy. Just the picture.",
     prompt: "What would most people call this at first glance?",
     consensus: [
-      { label: "tiny t-rex", share: 41 },
-      { label: "spiky lizard", share: 24 },
-      { label: "baby dinosaur", share: 21 },
-      { label: "raptor thing", share: 14 },
+      { label: "tiny t-rex", share: 41, aliases: ["tiny trex", "tiny t rex", "baby trex", "mini trex", "little trex", "small trex"] },
+      { label: "spiky lizard", share: 24, aliases: ["spiky dinosaur", "spike lizard", "spiked lizard", "spiky guy"] },
+      { label: "baby dinosaur", share: 21, aliases: ["baby dino", "little dinosaur", "small dinosaur", "tiny dinosaur"] },
+      { label: "raptor thing", share: 14, aliases: ["raptor", "small raptor", "raptor dinosaur"] },
     ],
   },
   {
@@ -35,10 +35,10 @@ const ITEMS = [
     description: "No title, no taxonomy. Just the picture.",
     prompt: "What crowd label wins here?",
     consensus: [
-      { label: "weird triceratops", share: 46 },
-      { label: "spiky face one", share: 23 },
-      { label: "boss dinosaur", share: 17 },
-      { label: "horned lizard", share: 14 },
+      { label: "weird triceratops", share: 46, aliases: ["triceratops", "weird trike", "fancy triceratops", "horned triceratops"] },
+      { label: "spiky face one", share: 23, aliases: ["spiky face", "spike face dinosaur", "face spikes"] },
+      { label: "boss dinosaur", share: 17, aliases: ["king dinosaur", "main dinosaur", "big boss dinosaur"] },
+      { label: "horned lizard", share: 14, aliases: ["horned dinosaur", "horn lizard", "horn face dinosaur"] },
     ],
   },
   {
@@ -49,10 +49,10 @@ const ITEMS = [
     description: "No package, no name. Just the shape.",
     prompt: "What would the average person call this pasta?",
     consensus: [
-      { label: "little noodles", share: 37 },
-      { label: "mini lasagna bits", share: 25 },
-      { label: "spiral pasta", share: 22 },
-      { label: "tiny shells", share: 16 },
+      { label: "little noodles", share: 37, aliases: ["tiny noodles", "small noodles", "little pasta", "mini noodles"] },
+      { label: "mini lasagna bits", share: 25, aliases: ["lasagna bits", "tiny lasagna", "mini lasagna", "little lasagna pieces"] },
+      { label: "spiral pasta", share: 22, aliases: ["spiral noodles", "spirals", "twisty pasta"] },
+      { label: "tiny shells", share: 16, aliases: ["small shells", "mini shells", "shell pasta"] },
     ],
   },
   {
@@ -63,10 +63,10 @@ const ITEMS = [
     description: "No package, no name. Just the shape.",
     prompt: "Which label gets the most instinctive votes?",
     consensus: [
-      { label: "flower pasta", share: 34 },
-      { label: "fancy shells", share: 28 },
-      { label: "curly noodles", share: 21 },
-      { label: "bowtie pasta", share: 17 },
+      { label: "flower pasta", share: 34, aliases: ["flower noodles", "petal pasta", "rose pasta"] },
+      { label: "fancy shells", share: 28, aliases: ["shell pasta", "frilly shells", "cute shells"] },
+      { label: "curly noodles", share: 21, aliases: ["curly pasta", "wavy noodles", "curled pasta"] },
+      { label: "bowtie pasta", share: 17, aliases: ["bow ties", "bowtie noodles", "farfalle"] },
     ],
   },
   {
@@ -77,10 +77,10 @@ const ITEMS = [
     description: "A staged image with no caption.",
     prompt: "What would most people think this image is trying to say?",
     consensus: [
-      { label: "teamwork", share: 42 },
-      { label: "healthy business lunch", share: 19 },
-      { label: "startup meeting", share: 23 },
-      { label: "office people pretending", share: 16 },
+      { label: "teamwork", share: 42, aliases: ["collaboration", "team building", "working together"] },
+      { label: "healthy business lunch", share: 19, aliases: ["office lunch", "healthy office lunch", "business lunch"] },
+      { label: "startup meeting", share: 23, aliases: ["startup lunch", "office meeting", "work meeting"] },
+      { label: "office people pretending", share: 16, aliases: ["fake office photo", "corporate pretending", "fake teamwork"] },
     ],
   },
   {
@@ -91,10 +91,10 @@ const ITEMS = [
     description: "A staged image with no caption.",
     prompt: "What does the crowd call the vibe of this photo?",
     consensus: [
-      { label: "work from anywhere", share: 44 },
-      { label: "fake productivity", share: 21 },
-      { label: "digital nomad ad", share: 20 },
-      { label: "vacation email", share: 15 },
+      { label: "work from anywhere", share: 44, aliases: ["remote work", "working remotely", "beach work", "work on vacation"] },
+      { label: "fake productivity", share: 21, aliases: ["pretend productivity", "fake remote work", "staged work"] },
+      { label: "digital nomad ad", share: 20, aliases: ["digital nomad", "nomad ad", "remote work ad"] },
+      { label: "vacation email", share: 15, aliases: ["checking email on vacation", "vacation work", "holiday email"] },
     ],
   },
   {
@@ -105,10 +105,10 @@ const ITEMS = [
     description: "You get a visual preview, not the real title.",
     prompt: "What would most people assume this article is?",
     consensus: [
-      { label: "morbid trivia page", share: 39 },
-      { label: "dark internet rabbit hole", share: 26 },
-      { label: "fake wikipedia page", share: 18 },
-      { label: "history facts list", share: 17 },
+      { label: "morbid trivia page", share: 39, aliases: ["morbid facts", "death trivia", "dark trivia page"] },
+      { label: "dark internet rabbit hole", share: 26, aliases: ["internet rabbit hole", "dark rabbit hole", "weird internet page"] },
+      { label: "fake wikipedia page", share: 18, aliases: ["fake wiki page", "made up wikipedia page", "satire wikipedia"] },
+      { label: "history facts list", share: 17, aliases: ["history list", "historical facts list", "history trivia"] },
     ],
   },
   {
@@ -119,10 +119,10 @@ const ITEMS = [
     description: "You get a visual preview, not the real title.",
     prompt: "What would most people guess this article covers?",
     consensus: [
-      { label: "historical panic event", share: 33 },
-      { label: "disco history", share: 25 },
-      { label: "medical condition", share: 24 },
-      { label: "internet joke page", share: 18 },
+      { label: "historical panic event", share: 33, aliases: ["history panic", "mass panic event", "historical event"] },
+      { label: "disco history", share: 25, aliases: ["dance history", "history of dancing", "disco article"] },
+      { label: "medical condition", share: 24, aliases: ["disease", "syndrome", "illness"] },
+      { label: "internet joke page", share: 18, aliases: ["joke wikipedia page", "meme page", "fake joke page"] },
     ],
   },
   {
@@ -133,10 +133,10 @@ const ITEMS = [
     description: "Cover only. No title shown yet.",
     prompt: "What would people think this book is called?",
     consensus: [
-      { label: "robot invasion", share: 35 },
-      { label: "giant monster book", share: 28 },
-      { label: "old sci-fi novel", share: 23 },
-      { label: "space war story", share: 14 },
+      { label: "robot invasion", share: 35, aliases: ["robot book", "robots attack", "robot war"] },
+      { label: "giant monster book", share: 28, aliases: ["monster book", "big monster book", "giant robot monster"] },
+      { label: "old sci-fi novel", share: 23, aliases: ["vintage sci fi", "old science fiction", "retro sci fi"] },
+      { label: "space war story", share: 14, aliases: ["space war", "space battle book", "war in space"] },
     ],
   },
   {
@@ -147,10 +147,10 @@ const ITEMS = [
     description: "Cover only. No title shown yet.",
     prompt: "What fake title would win the room?",
     consensus: [
-      { label: "the secret lagoon", share: 30 },
-      { label: "the lost island", share: 27 },
-      { label: "the haunted pool", share: 23 },
-      { label: "the moon temple", share: 20 },
+      { label: "the secret lagoon", share: 30, aliases: ["secret lagoon", "hidden lagoon", "mystery lagoon"] },
+      { label: "the lost island", share: 27, aliases: ["lost island", "island of mystery", "hidden island"] },
+      { label: "the haunted pool", share: 23, aliases: ["haunted pool", "ghost pool", "cursed pool"] },
+      { label: "the moon temple", share: 20, aliases: ["moon temple", "temple of the moon", "moon shrine"] },
     ],
   },
 ];
@@ -230,7 +230,7 @@ function renderDailyRound() {
   const item = state.dailyItem;
   const style = CATEGORY_STYLES[item.category];
   const image = document.getElementById("artifact-image");
-  const form = document.getElementById("guess-form");
+  const input = document.getElementById("guess-input");
   const datePill = document.getElementById("today-date");
   const asset = state.assetManifest[item.id];
 
@@ -248,28 +248,7 @@ function renderDailyRound() {
   image.src = resolveItemImage(item, style);
   image.alt = `${item.category} picture round`;
   renderAssetMeta(asset);
-
-  form.innerHTML = "";
-  item.consensus.forEach((option, index) => {
-    const id = `guess-${index}`;
-    const wrapper = document.createElement("div");
-    wrapper.className = "option-card";
-    wrapper.innerHTML = `
-      <input type="radio" name="daily-guess" id="${id}" value="${option.label}">
-      <label for="${id}">
-        <span class="option-title">${option.label}</span>
-        <span class="option-meta">Likely crowd answer</span>
-      </label>
-    `;
-    form.appendChild(wrapper);
-  });
-
-  form.addEventListener("change", (event) => {
-    const target = event.target;
-    if (target instanceof HTMLInputElement) {
-      state.selectedGuess = target.value;
-    }
-  });
+  input.value = "";
 }
 
 function renderAssetMeta(asset) {
@@ -299,15 +278,26 @@ function revealAssetMeta() {
 }
 
 function renderStats() {
-  document.getElementById("score-total").textContent = state.stats.score;
-  document.getElementById("correct-total").textContent = state.stats.correct;
-  document.getElementById("streak-total").textContent = state.stats.streak;
+  const score = document.getElementById("score-total");
+  const correct = document.getElementById("correct-total");
+  const streak = document.getElementById("streak-total");
+
+  if (!score || !correct || !streak) {
+    return;
+  }
+
+  score.textContent = state.stats.score;
+  correct.textContent = state.stats.correct;
+  streak.textContent = state.stats.streak;
 }
 
 function submitGuess() {
   const todayKey = getTodayKey();
-  if (!state.selectedGuess) {
-    showResult("Pick one option first.");
+  const input = document.getElementById("guess-input");
+  const typedGuess = input.value.trim();
+
+  if (!typedGuess) {
+    showResult("Type an answer first.");
     return;
   }
 
@@ -316,19 +306,22 @@ function submitGuess() {
     return;
   }
 
+  state.selectedGuess = typedGuess;
+
   const [winner, second] = state.dailyItem.consensus;
+  const match = matchConsensusOption(typedGuess, state.dailyItem.consensus);
   let points = 0;
   let message = "";
 
-  if (state.selectedGuess === winner.label) {
+  if (match?.label === winner.label) {
     points = 100;
     state.stats.correct += 1;
     state.stats.streak += 1;
-    message = `Bullseye. The top crowd answer was <strong>${winner.label}</strong> with ${winner.share}% of votes.`;
-  } else if (state.selectedGuess === second.label) {
+    message = `Bullseye. The top crowd answer was <strong>${winner.label}</strong> with ${winner.share}% of votes. Your answer matched it.`;
+  } else if (match?.label === second.label) {
     points = 40;
     state.stats.streak = 0;
-    message = `Close. The room went with <strong>${winner.label}</strong> at ${winner.share}%. Your pick landed second at ${second.share}%.`;
+    message = `Close. The room went with <strong>${winner.label}</strong> at ${winner.share}%. Your answer grouped with <strong>${second.label}</strong> at ${second.share}%.`;
   } else {
     state.stats.streak = 0;
     message = `Miss. The crowd leader was <strong>${winner.label}</strong> at ${winner.share}%.`;
@@ -352,6 +345,28 @@ function showResult(message) {
   const box = document.getElementById("result-box");
   box.innerHTML = message;
   box.classList.remove("hidden");
+}
+
+function normalizeGuess(value) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ");
+}
+
+function matchConsensusOption(guess, options) {
+  const normalizedGuess = normalizeGuess(guess);
+
+  for (const option of options) {
+    const candidates = [option.label, ...(option.aliases || [])].map(normalizeGuess);
+    if (candidates.includes(normalizedGuess)) {
+      return option;
+    }
+  }
+
+  return null;
 }
 
 function renderSeedBundle() {
@@ -402,10 +417,12 @@ function bindEvents() {
   document.getElementById("submit-guess").addEventListener("click", submitGuess);
   document.getElementById("reset-guess").addEventListener("click", () => {
     state.selectedGuess = null;
-    document.querySelectorAll('input[name="daily-guess"]').forEach((input) => {
-      input.checked = false;
-    });
+    document.getElementById("guess-input").value = "";
     showResult("Selection cleared.");
+  });
+  document.getElementById("guess-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    submitGuess();
   });
 }
 
