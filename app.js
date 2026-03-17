@@ -234,10 +234,10 @@ function renderDailyRound() {
   const datePill = document.getElementById("today-date");
   const asset = state.assetManifest[item.id];
 
-  document.getElementById("daily-title").textContent = "Guess the popular wrong answer";
   document.getElementById("artifact-category").textContent = item.visualHint;
-  document.getElementById("artifact-name").textContent = "Picture round";
-  document.getElementById("artifact-description").textContent = item.description;
+  document.getElementById("artifact-name").textContent = "Guessensus";
+  document.getElementById("artifact-description").textContent =
+    "One weird thing per day. Your job is to predict what most people would call it first.";
   document.getElementById("daily-prompt").textContent = item.prompt;
   datePill.textContent = new Date().toLocaleDateString(undefined, {
     weekday: "short",
@@ -286,7 +286,16 @@ function renderAssetMeta(asset) {
 
   attribution.textContent = `${asset.attribution} License: ${asset.license}.`;
   sourceLink.href = asset.sourceUrl;
-  meta.classList.remove("hidden");
+  meta.classList.add("hidden");
+}
+
+function revealAssetMeta() {
+  const meta = document.getElementById("asset-meta");
+  const attribution = document.getElementById("asset-attribution");
+
+  if (attribution.textContent) {
+    meta.classList.remove("hidden");
+  }
 }
 
 function renderStats() {
@@ -335,6 +344,7 @@ function submitGuess() {
   saveJson(STORAGE_KEYS.stats, state.stats);
   saveJson(STORAGE_KEYS.played, state.played);
   renderStats();
+  revealAssetMeta();
   showResult(`${message} You earned <b>${points}</b> points.`);
 }
 
@@ -417,6 +427,7 @@ async function bootstrap() {
 
   const playedToday = state.played[getTodayKey()];
   if (playedToday) {
+    revealAssetMeta();
     showResult("Today’s round is already scored on this browser. The daily item stays visible for reference.");
   }
 }
