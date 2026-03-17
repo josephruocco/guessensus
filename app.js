@@ -168,6 +168,7 @@ const state = {
   selectedGuess: null,
   seedBundle: [],
   seedSelections: {},
+  assetManifest: {},
   stats: loadJson(STORAGE_KEYS.stats, { score: 0, correct: 0, streak: 0 }),
   played: loadJson(STORAGE_KEYS.played, {}),
   queue: loadJson(STORAGE_KEYS.queue, []),
@@ -243,7 +244,7 @@ function renderDailyRound() {
     day: "numeric",
   });
 
-  image.src = buildIllustration(item, style);
+  image.src = resolveItemImage(item, style);
   image.alt = `${item.category} picture round`;
 
   form.innerHTML = "";
@@ -380,6 +381,11 @@ function bindEvents() {
 }
 
 function init() {
+  bootstrap();
+}
+
+async function bootstrap() {
+  state.assetManifest = await loadAssetManifest();
   state.dailyItem = pickDailyItem();
   state.seedBundle = createSeedBundle();
 
@@ -394,6 +400,33 @@ function init() {
   if (playedToday) {
     showResult("Today’s round is already scored on this browser. The daily item stays visible for reference.");
   }
+}
+
+async function loadAssetManifest() {
+  try {
+    const response = await fetch("./assets/manifest.json");
+    if (!response.ok) {
+      return {};
+    }
+
+    const data = await response.json();
+    return Object.fromEntries(
+      (data.assets || [])
+        .filter((asset) => asset.id)
+        .map((asset) => [asset.id, asset]),
+    );
+  } catch {
+    return {};
+  }
+}
+
+function resolveItemImage(item, style) {
+  const asset = state.assetManifest[item.id];
+  if (asset && asset.image) {
+    return asset.image;
+  }
+
+  return buildIllustration(item, style);
 }
 
 function buildIllustration(item, style) {

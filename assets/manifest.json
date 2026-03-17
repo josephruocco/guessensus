@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "dino-1",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "dino-2",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "pasta-1",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "pasta-2",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "stock-1",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "stock-2",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "wiki-1",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "wiki-2",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "book-1",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    },
+    {
+      "id": "book-2",
+      "image": "",
+      "sourceUrl": "",
+      "title": "",
+      "creator": "",
+      "license": "",
+      "attribution": ""
+    }
+  ]
+}
