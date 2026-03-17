@@ -74,22 +74,22 @@
       "attribution": "The dancing mania, by Hondius via Wellcome Collection on Wikimedia Commons, CC BY 4.0"
     },
     {
-      "id": "book-1",
-      "image": "./assets/images/book-1.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Metal_monster_sharp.jpg",
-      "title": "Metal monster sharp",
-      "creator": "Glen White",
-      "license": "Public Domain",
-      "attribution": "The Metal Monster cover art by Glen White via Wikimedia Commons, Public Domain"
+      "id": "mush-1",
+      "image": "./assets/images/mush-1.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hericium_erinaceus_157748810.jpg",
+      "title": "Hericium erinaceus 157748810",
+      "creator": "Jason Hollinger",
+      "license": "CC BY 2.0",
+      "attribution": "Lion's mane mushroom photo by Jason Hollinger via Wikimedia Commons, CC BY 2.0"
     },
     {
-      "id": "book-2",
-      "image": "./assets/images/book-2.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moon_Pool_1st.jpg",
-      "title": "Moon Pool 1st",
-      "creator": "Joseph Clement Coll",
-      "license": "Public Domain",
-      "attribution": "The Moon Pool first edition cover by Joseph Clement Coll via Wikimedia Commons, Public Domain"
+      "id": "mush-2",
+      "image": "./assets/images/mush-2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Earth_Star._(Geastrum)_(51662586116).jpg",
+      "title": "Earth Star (Geastrum)",
+      "creator": "Bernard Spragg",
+      "license": "CC0",
+      "attribution": "Earth star mushroom photo by Bernard Spragg via Wikimedia Commons, CC0"
     }
   ]
 }

@@ -10,7 +10,7 @@ const CATEGORY_STYLES = {
   Pasta: { emoji: "🍝", accent: "#c8952c", accentDeep: "#87590d" },
   "Stock Photos": { emoji: "📸", accent: "#496f96", accentDeep: "#22415f" },
   "Wikipedia Articles": { emoji: "📚", accent: "#5d6d56", accentDeep: "#33402e" },
-  "Old Book Covers": { emoji: "📕", accent: "#87504d", accentDeep: "#4d2927" },
+  Mushrooms: { emoji: "🍄", accent: "#7b6645", accentDeep: "#4b3b24" },
 };
 
 const ITEMS = [
@@ -127,31 +127,31 @@ const ITEMS = [
     ],
   },
   {
-    id: "book-1",
-    category: "Old Book Covers",
-    name: "The Metal Monster",
-    visualHint: "Mystery book cover",
-    description: "Cover only. No title shown yet.",
-    prompt: "What would people think this book is called?",
+    id: "mush-1",
+    category: "Mushrooms",
+    name: "Lion's mane mushroom",
+    visualHint: "Obscure mushroom",
+    description: "No label, no species card. Just the photo.",
+    prompt: "What would most people call this mushroom?",
     consensus: [
-      { label: "robot invasion", share: 35, aliases: ["robot book", "robots attack", "robot war"] },
-      { label: "giant monster book", share: 28, aliases: ["monster book", "big monster book", "giant robot monster"] },
-      { label: "old sci-fi novel", share: 23, aliases: ["vintage sci fi", "old science fiction", "retro sci fi"] },
-      { label: "space war story", share: 14, aliases: ["space war", "space battle book", "war in space"] },
+      { label: "brain mushroom", share: 34, aliases: ["mushroom brain", "white brain mushroom", "brain fungus"] },
+      { label: "hairy mushroom", share: 29, aliases: ["fuzzy mushroom", "shaggy mushroom", "hair fungus"] },
+      { label: "cauliflower mushroom", share: 21, aliases: ["white cauliflower", "cauliflower fungus", "cauliflower-looking mushroom"] },
+      { label: "coral mushroom", share: 16, aliases: ["sea coral mushroom", "coral fungus", "white coral mushroom"] },
     ],
   },
   {
-    id: "book-2",
-    category: "Old Book Covers",
-    name: "The Moon Pool",
-    visualHint: "Mystery book cover",
-    description: "Cover only. No title shown yet.",
-    prompt: "What fake title would win the room?",
+    id: "mush-2",
+    category: "Mushrooms",
+    name: "Earthstar mushroom",
+    visualHint: "Obscure mushroom",
+    description: "No label, no species card. Just the photo.",
+    prompt: "What would most people call this mushroom?",
     consensus: [
-      { label: "the secret lagoon", share: 30, aliases: ["secret lagoon", "hidden lagoon", "mystery lagoon"] },
-      { label: "the lost island", share: 27, aliases: ["lost island", "island of mystery", "hidden island"] },
-      { label: "the haunted pool", share: 23, aliases: ["haunted pool", "ghost pool", "cursed pool"] },
-      { label: "the moon temple", share: 20, aliases: ["moon temple", "temple of the moon", "moon shrine"] },
+      { label: "star mushroom", share: 38, aliases: ["star fungus", "mushroom star", "star shaped mushroom"] },
+      { label: "alien mushroom", share: 24, aliases: ["weird alien mushroom", "alien fungus", "space mushroom"] },
+      { label: "octopus mushroom", share: 22, aliases: ["tiny octopus mushroom", "octopus fungus", "squid mushroom"] },
+      { label: "flower mushroom", share: 16, aliases: ["petal mushroom", "bloom mushroom", "flower fungus"] },
     ],
   },
 ];
@@ -161,7 +161,7 @@ const SEED_LABELS = {
   Pasta: ["flower pasta", "tiny shells", "spiral pasta", "little noodles", "tube pasta", "fancy bowties"],
   "Stock Photos": ["teamwork", "fake productivity", "corporate ad", "wellness content", "awkward meeting", "startup energy"],
   "Wikipedia Articles": ["internet joke page", "history rabbit hole", "fake wikipedia page", "niche fandom article", "morbid trivia", "academic thing"],
-  "Old Book Covers": ["old sci-fi novel", "haunted mansion book", "weird children’s story", "occult paperback", "lost world adventure", "robot invasion"],
+  Mushrooms: ["brain mushroom", "hairy mushroom", "star mushroom", "alien mushroom", "flower mushroom", "cauliflower mushroom"],
 };
 
 const state = {
@@ -621,20 +621,21 @@ function buildIllustration(item, style) {
       <rect x="290" y="250" width="198" height="10" rx="5" fill="#b7aa99" />
       <rect x="290" y="276" width="176" height="10" rx="5" fill="#b7aa99" />
     `,
-    "book-1": `
-      <rect x="146" y="28" width="348" height="392" rx="18" fill="#2a2a38" />
-      <rect x="176" y="66" width="288" height="42" rx="12" fill="#d5a744" />
-      <rect x="214" y="136" width="218" height="176" rx="18" fill="#7b2f2e" />
-      <circle cx="266" cy="228" r="42" fill="#d7d0c5" opacity="0.28" />
-      <rect x="318" y="182" width="58" height="92" rx="10" fill="#b7b7c0" />
-      <rect x="240" y="314" width="160" height="16" rx="8" fill="#d5a744" />
+    "mush-1": `
+      <path d="M318 96 C248 96, 196 148, 196 220 C196 268, 230 312, 278 324 L358 324 C408 312, 440 268, 440 220 C440 148, 388 96, 318 96 Z" fill="#f0e3c8" />
+      <path d="M284 320 C282 370, 266 394, 244 420 L394 420 C370 392, 354 368, 352 320 Z" fill="#d5c2a2" />
+      <path d="M224 222 C252 258, 278 282, 314 314" stroke="#f8f2e8" stroke-width="12" stroke-linecap="round" />
+      <path d="M264 206 C296 252, 324 282, 370 318" stroke="#f8f2e8" stroke-width="12" stroke-linecap="round" />
+      <path d="M324 194 C344 232, 364 264, 402 306" stroke="#f8f2e8" stroke-width="12" stroke-linecap="round" />
     `,
-    "book-2": `
-      <rect x="146" y="28" width="348" height="392" rx="18" fill="#21384f" />
-      <circle cx="320" cy="142" r="56" fill="#dce7f0" />
-      <ellipse cx="320" cy="278" rx="118" ry="54" fill="#3b607e" />
-      <ellipse cx="320" cy="286" rx="84" ry="22" fill="#a5d2d7" />
-      <rect x="212" y="344" width="220" height="18" rx="9" fill="#e4ca8f" />
+    "mush-2": `
+      <circle cx="320" cy="164" r="46" fill="#d8c5aa" />
+      <path d="M320 112 L338 58 L352 120 Z" fill="#d8c5aa" />
+      <path d="M180 248 C218 204, 250 190, 286 186 C276 218, 262 258, 236 314 Z" fill="#cbb28f" />
+      <path d="M460 248 C422 204, 390 190, 354 186 C364 218, 378 258, 404 314 Z" fill="#cbb28f" />
+      <path d="M252 334 C266 278, 286 236, 312 194 C322 238, 330 280, 326 334 Z" fill="#cbb28f" />
+      <path d="M388 334 C374 278, 354 236, 328 194 C318 238, 310 280, 314 334 Z" fill="#cbb28f" />
+      <path d="M320 334 C308 286, 302 246, 304 206 C336 234, 352 278, 366 334 Z" fill="#b79b75" />
     `,
   };
 
