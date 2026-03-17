@@ -2,6 +2,7 @@ const STORAGE_KEYS = {
   stats: "guessensus-stats",
   played: "guessensus-played",
   queue: "guessensus-queue",
+  pool: "guessensus-answer-pool",
 };
 
 const CATEGORY_STYLES = {
@@ -169,6 +170,7 @@ const state = {
   seedBundle: [],
   seedSelections: {},
   assetManifest: {},
+  pool: loadJson(STORAGE_KEYS.pool, {}),
   stats: loadJson(STORAGE_KEYS.stats, { score: 0, correct: 0, streak: 0 }),
   played: loadJson(STORAGE_KEYS.played, {}),
   queue: loadJson(STORAGE_KEYS.queue, []),
@@ -239,6 +241,7 @@ function renderDailyRound() {
   document.getElementById("artifact-description").textContent =
     "One weird thing per day. Your job is to predict what most people would call it first.";
   document.getElementById("daily-prompt").textContent = item.prompt;
+  document.getElementById("next-drop-note").textContent = "A new thing shows up after midnight on this device.";
   datePill.textContent = new Date().toLocaleDateString(undefined, {
     weekday: "short",
     month: "short",
@@ -248,6 +251,7 @@ function renderDailyRound() {
   image.src = resolveItemImage(item, style);
   image.alt = `${item.category} picture round`;
   renderAssetMeta(asset);
+  renderPoolStatus();
   input.value = "";
 }
 
@@ -347,6 +351,49 @@ function showResult(message) {
   box.classList.remove("hidden");
 }
 
+function togglePoolPanel(forceOpen) {
+  const panel = document.getElementById("pool-panel");
+  const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : panel.classList.contains("hidden");
+  panel.classList.toggle("hidden", !shouldOpen);
+
+  if (shouldOpen) {
+    document.getElementById("pool-input").focus();
+  }
+}
+
+function renderPoolStatus() {
+  const entries = state.pool[state.dailyItem.id] || [];
+  const status = document.getElementById("pool-status");
+  status.textContent =
+    entries.length === 0
+      ? "No saved pool answers for this item yet."
+      : `${entries.length} saved pool answer${entries.length === 1 ? "" : "s"} on this browser.`;
+}
+
+function savePoolAnswer() {
+  const input = document.getElementById("pool-input");
+  const typed = input.value.trim();
+
+  if (!typed) {
+    document.getElementById("pool-status").textContent = "Type an answer before saving to the pool.";
+    return;
+  }
+
+  const itemId = state.dailyItem.id;
+  const existing = state.pool[itemId] || [];
+
+  existing.unshift({
+    answer: typed,
+    normalized: normalizeGuess(typed),
+    createdAt: new Date().toISOString(),
+  });
+
+  state.pool[itemId] = existing;
+  saveJson(STORAGE_KEYS.pool, state.pool);
+  input.value = "";
+  renderPoolStatus();
+}
+
 function normalizeGuess(value) {
   return value
     .toLowerCase()
@@ -423,6 +470,16 @@ function bindEvents() {
   document.getElementById("guess-form").addEventListener("submit", (event) => {
     event.preventDefault();
     submitGuess();
+  });
+  document.getElementById("pool-link").addEventListener("click", () => {
+    togglePoolPanel();
+  });
+  document.getElementById("close-pool").addEventListener("click", () => {
+    togglePoolPanel(false);
+  });
+  document.getElementById("pool-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    savePoolAnswer();
   });
 }
 

@@ -21,6 +21,10 @@
             <h1 class="artifact-name" id="artifact-name"></h1>
             <p class="artifact-description" id="artifact-description"></p>
             <div class="date-pill" id="today-date"></div>
+            <div class="meta-row">
+              <p class="meta-note" id="next-drop-note"></p>
+              <button class="meta-link" id="pool-link" type="button">Add to the answer pool</button>
+            </div>
           </div>
 
           <div class="artifact-card">
@@ -62,6 +66,29 @@
           </div>
 
           <div class="result-box hidden" id="result-box" aria-live="polite"></div>
+
+          <section class="pool-panel hidden" id="pool-panel">
+            <p class="pool-title">Add to the answer pool</p>
+            <p class="pool-copy">
+              This saves a crowd answer for this item on this browser. It does not affect scoring yet.
+            </p>
+            <form class="pool-form" id="pool-form">
+              <input
+                class="guess-input"
+                id="pool-input"
+                name="pool-answer"
+                type="text"
+                maxlength="80"
+                autocomplete="off"
+                placeholder="Type another answer people might say"
+              />
+              <div class="action-row action-row-tight">
+                <button class="button button-primary" type="submit">Save to pool</button>
+                <button class="button button-secondary" id="close-pool" type="button">Close</button>
+              </div>
+            </form>
+            <p class="pool-status" id="pool-status"></p>
+          </section>
         </section>
       </main>
     </div>
