@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Mouse Cookies",
+  "version": "0.1.0",
+  "description": "Turn accepted website cookies into draggable treats for a little mouse at the bottom of the page.",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
