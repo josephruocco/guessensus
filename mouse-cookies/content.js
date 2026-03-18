@@ -7,15 +7,20 @@
   const ROOT_ID = "mouse-cookies-root";
   const COOKIE_SIZE = 52;
   const MAX_COOKIES = 6;
+  const SCAN_INTERVAL_MS = 1200;
   const COOKIE_ACCEPT_PATTERN =
-    /\b(accept|agree|allow|consent|got it|ok|okay|continue|enable)\b/i;
+    /\b(accept|accept all|allow|agree|consent|got it|ok|okay|continue|enable)\b/i;
+  const COOKIE_DECISION_PATTERN =
+    /\b(accept|reject|customize|preferences|privacy policy|manage|allow|agree)\b/i;
   const COOKIE_CONTEXT_PATTERN =
-    /\b(cookie|cookies|privacy|consent|gdpr|tracking)\b/i;
+    /\b(cookie|cookies|consent|privacy|tracking|gdpr|ccpa)\b/i;
 
   const state = {
     cookies: new Set(),
     heartTimeout: null,
-    retreatTimeout: null
+    retreatTimeout: null,
+    hideTimeout: null,
+    activeBanner: null
   };
 
   const root = document.createElement("div");
@@ -23,7 +28,6 @@
   root.setAttribute("aria-hidden", "true");
   root.innerHTML = `
     <div class="mouse-cookies-stage">
-      <div class="mouse-cookies-heart-zone"></div>
       <div class="mouse-cookies-hole">
         <div class="mouse-cookies-hole-shadow"></div>
         <div class="mouse-cookies-mouse">
@@ -40,47 +44,12 @@
   document.documentElement.appendChild(root);
 
   const stage = root.querySelector(".mouse-cookies-stage");
-  const mouse = root.querySelector(".mouse-cookies-mouse");
   const hole = root.querySelector(".mouse-cookies-hole");
+  const mouse = root.querySelector(".mouse-cookies-mouse");
   const hearts = root.querySelector(".mouse-cookies-hearts");
 
   function normalizeText(value) {
     return (value || "").replace(/\s+/g, " ").trim().toLowerCase();
-  }
-
-  function looksLikeCookieBanner(element) {
-    let node = element;
-    for (let depth = 0; node && depth < 5; depth += 1) {
-      const text = normalizeText(node.textContent).slice(0, 500);
-      if (COOKIE_CONTEXT_PATTERN.test(text)) {
-        return true;
-      }
-      node = node.parentElement;
-    }
-    return false;
-  }
-
-  function isLikelyCookieAcceptTarget(target) {
-    if (!(target instanceof Element)) {
-      return false;
-    }
-
-    const clickable = target.closest("button, a, [role='button'], input[type='button'], input[type='submit']");
-    if (!clickable) {
-      return false;
-    }
-
-    const text = normalizeText(
-      clickable.getAttribute("aria-label") ||
-        clickable.getAttribute("value") ||
-        clickable.textContent
-    );
-
-    if (!COOKIE_ACCEPT_PATTERN.test(text)) {
-      return false;
-    }
-
-    return looksLikeCookieBanner(clickable);
   }
 
   function clamp(value, min, max) {
@@ -92,35 +61,115 @@
     cookie.style.top = `${y}px`;
   }
 
-  function spawnCookieTreat(originX, originY) {
-    if (state.cookies.size >= MAX_COOKIES) {
-      const oldest = state.cookies.values().next().value;
-      if (oldest) {
-        removeCookie(oldest);
+  function isVisibleElement(element) {
+    if (!(element instanceof HTMLElement)) {
+      return false;
+    }
+
+    const style = window.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+
+    return (
+      style.display !== "none" &&
+      style.visibility !== "hidden" &&
+      parseFloat(style.opacity || "1") > 0 &&
+      rect.width >= 220 &&
+      rect.height >= 70 &&
+      rect.bottom > 0 &&
+      rect.right > 0 &&
+      rect.left < window.innerWidth &&
+      rect.top < window.innerHeight
+    );
+  }
+
+  function getBannerScore(element) {
+    if (!isVisibleElement(element)) {
+      return 0;
+    }
+
+    const text = normalizeText(element.textContent).slice(0, 1200);
+    if (!COOKIE_CONTEXT_PATTERN.test(text)) {
+      return 0;
+    }
+
+    const rect = element.getBoundingClientRect();
+    let score = 1;
+
+    if (COOKIE_DECISION_PATTERN.test(text)) {
+      score += 2;
+    }
+
+    const style = window.getComputedStyle(element);
+    if (style.position === "fixed" || style.position === "sticky") {
+      score += 2;
+    }
+
+    if (rect.bottom >= window.innerHeight - 16 || rect.top <= 16) {
+      score += 2;
+    }
+
+    if (rect.width >= window.innerWidth * 0.4) {
+      score += 1;
+    }
+
+    const buttonCount = element.querySelectorAll("button, [role='button'], a, input[type='button'], input[type='submit']").length;
+    if (buttonCount >= 2) {
+      score += 1;
+    }
+
+    return score;
+  }
+
+  function findActiveBanner() {
+    const candidates = Array.from(document.querySelectorAll("body *"));
+    let winner = null;
+    let winnerScore = 0;
+
+    for (const element of candidates) {
+      const score = getBannerScore(element);
+      if (score > winnerScore) {
+        winnerScore = score;
+        winner = element;
       }
     }
 
-    const cookie = document.createElement("div");
-    cookie.className = "mouse-cookies-cookie";
-    cookie.innerHTML = `
-      <div class="mouse-cookies-chip chip-1"></div>
-      <div class="mouse-cookies-chip chip-2"></div>
-      <div class="mouse-cookies-chip chip-3"></div>
-      <div class="mouse-cookies-chip chip-4"></div>
-      <div class="mouse-cookies-chip chip-5"></div>
-    `;
+    return winnerScore >= 4 ? winner : null;
+  }
 
-    const startX = clamp(originX - COOKIE_SIZE / 2, 12, window.innerWidth - COOKIE_SIZE - 12);
-    const startY = clamp(originY - COOKIE_SIZE / 2, 12, window.innerHeight - COOKIE_SIZE - 120);
-    setCookiePosition(cookie, startX, startY);
-    stage.appendChild(cookie);
-    state.cookies.add(cookie);
+  function updateStageVisibility() {
+    const hasBanner = Boolean(state.activeBanner && state.activeBanner.isConnected);
+    const hasCookies = state.cookies.size > 0;
+    const shouldShow = hasBanner || hasCookies;
 
-    requestAnimationFrame(() => {
-      cookie.classList.add("is-visible");
-    });
+    root.classList.toggle("is-active", shouldShow);
 
-    attachDrag(cookie);
+    if (!shouldShow) {
+      stage.style.bottom = "0px";
+      return;
+    }
+
+    let bottomOffset = 0;
+    if (hasBanner) {
+      const rect = state.activeBanner.getBoundingClientRect();
+      if (rect.top >= window.innerHeight * 0.45) {
+        bottomOffset = clamp(window.innerHeight - rect.top + 10, 0, 280);
+      }
+    }
+
+    stage.style.bottom = `${bottomOffset}px`;
+  }
+
+  function scheduleHideCheck() {
+    clearTimeout(state.hideTimeout);
+    state.hideTimeout = window.setTimeout(() => {
+      state.activeBanner = findActiveBanner();
+      updateStageVisibility();
+    }, 650);
+  }
+
+  function refreshBannerState() {
+    state.activeBanner = findActiveBanner();
+    updateStageVisibility();
   }
 
   function removeCookie(cookie) {
@@ -128,6 +177,7 @@
     cookie.classList.add("is-removing");
     window.setTimeout(() => {
       cookie.remove();
+      updateStageVisibility();
     }, 220);
   }
 
@@ -156,6 +206,7 @@
       mouse.classList.add("is-hidden");
       window.setTimeout(() => {
         mouse.classList.remove("is-hidden");
+        scheduleHideCheck();
       }, 1200);
     }, 300);
   }
@@ -222,15 +273,87 @@
     });
   }
 
+  function spawnCookieTreat(originX, originY) {
+    if (state.cookies.size >= MAX_COOKIES) {
+      const oldest = state.cookies.values().next().value;
+      if (oldest) {
+        removeCookie(oldest);
+      }
+    }
+
+    const cookie = document.createElement("div");
+    cookie.className = "mouse-cookies-cookie";
+    cookie.innerHTML = `
+      <div class="mouse-cookies-chip chip-1"></div>
+      <div class="mouse-cookies-chip chip-2"></div>
+      <div class="mouse-cookies-chip chip-3"></div>
+      <div class="mouse-cookies-chip chip-4"></div>
+      <div class="mouse-cookies-chip chip-5"></div>
+    `;
+
+    const startX = clamp(originX - COOKIE_SIZE / 2, 12, window.innerWidth - COOKIE_SIZE - 12);
+    const startY = clamp(originY - COOKIE_SIZE / 2, 12, window.innerHeight - COOKIE_SIZE - 120);
+    setCookiePosition(cookie, startX, startY);
+    stage.appendChild(cookie);
+    state.cookies.add(cookie);
+    updateStageVisibility();
+
+    requestAnimationFrame(() => {
+      cookie.classList.add("is-visible");
+    });
+
+    attachDrag(cookie);
+  }
+
+  function getClickableTarget(target) {
+    if (!(target instanceof Element)) {
+      return null;
+    }
+
+    return target.closest("button, a, [role='button'], input[type='button'], input[type='submit']");
+  }
+
+  function isLikelyCookieAcceptTarget(target) {
+    const clickable = getClickableTarget(target);
+    if (!clickable) {
+      return false;
+    }
+
+    const text = normalizeText(
+      clickable.getAttribute("aria-label") ||
+        clickable.getAttribute("value") ||
+        clickable.textContent
+    );
+
+    if (!COOKIE_ACCEPT_PATTERN.test(text)) {
+      return false;
+    }
+
+    const banner = state.activeBanner || findActiveBanner();
+    if (banner && banner.contains(clickable)) {
+      return true;
+    }
+
+    let node = clickable;
+    for (let depth = 0; node && depth < 4; depth += 1) {
+      if (COOKIE_CONTEXT_PATTERN.test(normalizeText(node.textContent).slice(0, 500))) {
+        return true;
+      }
+      node = node.parentElement;
+    }
+
+    return false;
+  }
+
   document.addEventListener(
     "click",
     (event) => {
-      const target = event.target;
-      if (!isLikelyCookieAcceptTarget(target)) {
+      if (!isLikelyCookieAcceptTarget(event.target)) {
         return;
       }
 
-      const origin = target.getBoundingClientRect();
+      const clickable = getClickableTarget(event.target);
+      const origin = clickable.getBoundingClientRect();
       const spawnCount = Math.random() > 0.55 ? 2 : 1;
 
       for (let index = 0; index < spawnCount; index += 1) {
@@ -238,7 +361,24 @@
         const offsetY = -10 - index * 16;
         spawnCookieTreat(origin.left + origin.width / 2 + offsetX, origin.top + offsetY);
       }
+
+      scheduleHideCheck();
     },
     true
   );
+
+  const observer = new MutationObserver(() => {
+    refreshBannerState();
+  });
+
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["style", "class", "hidden", "aria-hidden"]
+  });
+
+  window.addEventListener("resize", updateStageVisibility);
+  window.setInterval(refreshBannerState, SCAN_INTERVAL_MS);
+  refreshBannerState();
 })();
