@@ -47,6 +47,26 @@
   transform: translateX(-50%) translateY(0);
 }
 
+#mouse-cookies-root.side-left .mouse-cookies-hole {
+  left: 24px;
+  right: auto;
+  transform: translateX(0) translateY(86px);
+}
+
+#mouse-cookies-root.side-left.is-active .mouse-cookies-hole {
+  transform: translateX(0) translateY(0);
+}
+
+#mouse-cookies-root.side-right .mouse-cookies-hole {
+  left: auto;
+  right: 24px;
+  transform: translateX(0) translateY(86px);
+}
+
+#mouse-cookies-root.side-right.is-active .mouse-cookies-hole {
+  transform: translateX(0) translateY(0);
+}
+
 .mouse-cookies-hole-shadow {
   position: absolute;
   inset: auto 12px -14px;
@@ -203,6 +223,17 @@
   width: 140px;
   height: 76px;
   transform: translateX(-50%);
+}
+
+#mouse-cookies-root.side-left .mouse-cookies-hearts {
+  left: 24px;
+  transform: none;
+}
+
+#mouse-cookies-root.side-right .mouse-cookies-hearts {
+  left: auto;
+  right: 24px;
+  transform: none;
 }
 
 .mouse-cookies-heart {
