@@ -71,6 +71,118 @@ const ITEMS = [
     ],
   },
   {
+    id: "pasta-3",
+    category: "Pasta",
+    name: "Orecchiette",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "little ears", share: 36, aliases: ["tiny ears", "ear pasta", "ear-shaped pasta"] },
+      { label: "shell pasta", share: 26, aliases: ["shells", "small shells", "shell noodles"] },
+      { label: "tiny bowls", share: 22, aliases: ["little bowls", "bowl pasta", "mini bowls"] },
+      { label: "cup pasta", share: 16, aliases: ["cups", "mini cups", "tiny cups"] },
+    ],
+  },
+  {
+    id: "pasta-4",
+    category: "Pasta",
+    name: "Trofie",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "twisty noodles", share: 34, aliases: ["twisted noodles", "twisty pasta", "twists"] },
+      { label: "worms", share: 26, aliases: ["worm pasta", "little worms", "wiggly worms"] },
+      { label: "curly pasta", share: 22, aliases: ["curly noodles", "wavy pasta", "curled pasta"] },
+      { label: "rope pasta", share: 18, aliases: ["tiny ropes", "rope noodles", "ropey pasta"] },
+    ],
+  },
+  {
+    id: "pasta-5",
+    category: "Pasta",
+    name: "Mafaldine",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "ribbon noodles", share: 33, aliases: ["ribbon pasta", "flat ribbons", "ribbon strips"] },
+      { label: "lasagna edges", share: 29, aliases: ["lasagna strips", "lasagna noodles", "lasagna ribbons"] },
+      { label: "ruffle pasta", share: 22, aliases: ["ruffled noodles", "wavy ribbons", "frilly pasta"] },
+      { label: "flat noodles", share: 16, aliases: ["flat pasta", "wide noodles", "flat strips"] },
+    ],
+  },
+  {
+    id: "pasta-6",
+    category: "Pasta",
+    name: "Casarecce",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "scroll pasta", share: 31, aliases: ["rolled pasta", "rolled scrolls", "scroll noodles"] },
+      { label: "curled shells", share: 28, aliases: ["shell curls", "curly shells", "shell pasta"] },
+      { label: "tube pasta", share: 23, aliases: ["tubes", "small tubes", "tubey pasta"] },
+      { label: "twisty noodles", share: 18, aliases: ["twisted noodles", "twisty pasta", "twists"] },
+    ],
+  },
+  {
+    id: "pasta-7",
+    category: "Pasta",
+    name: "Pipe rigate",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "tiny tubes", share: 35, aliases: ["small tubes", "tube pasta", "little tubes"] },
+      { label: "snail pasta", share: 24, aliases: ["snail shells", "snail noodles", "snail-shaped pasta"] },
+      { label: "elbow noodles", share: 22, aliases: ["elbows", "big elbows", "curved elbows"] },
+      { label: "shell pasta", share: 19, aliases: ["shells", "shell noodles", "shell pasta pieces"] },
+    ],
+  },
+  {
+    id: "pasta-8",
+    category: "Pasta",
+    name: "Fregula",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "couscous", share: 38, aliases: ["big couscous", "giant couscous", "cous cous"] },
+      { label: "pasta beads", share: 25, aliases: ["bead pasta", "pasta balls", "tiny bead pasta"] },
+      { label: "cereal pasta", share: 20, aliases: ["tiny cereal", "cereal-looking pasta", "breakfast pasta"] },
+      { label: "tiny balls", share: 17, aliases: ["little balls", "round pasta", "small balls"] },
+    ],
+  },
+  {
+    id: "pasta-9",
+    category: "Pasta",
+    name: "Conchiglie rigate",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "shell pasta", share: 42, aliases: ["shells", "shell noodles", "small shells"] },
+      { label: "scoops", share: 22, aliases: ["little scoops", "mini scoops", "scoop pasta"] },
+      { label: "cup pasta", share: 19, aliases: ["cups", "tiny cups", "pasta cups"] },
+      { label: "tiny bowls", share: 17, aliases: ["little bowls", "bowl pasta", "mini bowls"] },
+    ],
+  },
+  {
+    id: "pasta-10",
+    category: "Pasta",
+    name: "Gemelli",
+    visualHint: "Obscure pasta shape",
+    description: "No package, no name. Just the shape.",
+    prompt: "What would most people call this pasta?",
+    consensus: [
+      { label: "twisted noodles", share: 37, aliases: ["twisty noodles", "twists", "twisted pasta"] },
+      { label: "double pasta", share: 24, aliases: ["double noodles", "paired pasta", "two-strand pasta"] },
+      { label: "corkscrews", share: 21, aliases: ["corkscrew pasta", "spiral pasta", "spirals"] },
+      { label: "braid pasta", share: 18, aliases: ["braided noodles", "braided pasta", "braids"] },
+    ],
+  },
+  {
     id: "stock-1",
     category: "Stock Photos",
     name: "Handshake Over Salad",
@@ -99,6 +211,118 @@ const ITEMS = [
     ],
   },
   {
+    id: "stock-3",
+    category: "Stock Photos",
+    name: "Handshake at coffee shop",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What would most people think this image is trying to say?",
+    consensus: [
+      { label: "business deal", share: 36, aliases: ["deal", "closing a deal", "agreement"] },
+      { label: "teamwork", share: 27, aliases: ["collaboration", "working together", "partnership"] },
+      { label: "networking", share: 21, aliases: ["business networking", "meeting contact", "network event"] },
+      { label: "startup meeting", share: 16, aliases: ["startup deal", "coffee meeting", "founder meeting"] },
+    ],
+  },
+  {
+    id: "stock-4",
+    category: "Stock Photos",
+    name: "Important meeting",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What vibe would most people assign to this image?",
+    consensus: [
+      { label: "important meeting", share: 39, aliases: ["serious meeting", "big meeting", "executive meeting"] },
+      { label: "government briefing", share: 24, aliases: ["briefing", "cabinet meeting", "official briefing"] },
+      { label: "business presentation", share: 21, aliases: ["presentation", "conference room meeting", "board meeting"] },
+      { label: "people pretending to listen", share: 16, aliases: ["fake listening", "bored meeting", "meeting pose"] },
+    ],
+  },
+  {
+    id: "stock-5",
+    category: "Stock Photos",
+    name: "Coffee and phone call",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What would most people think this image is selling?",
+    consensus: [
+      { label: "office productivity", share: 33, aliases: ["productivity", "productive office", "workday focus"] },
+      { label: "customer service ad", share: 25, aliases: ["support ad", "customer support", "phone support"] },
+      { label: "office coffee", share: 23, aliases: ["coffee break at work", "coffee at desk", "work coffee"] },
+      { label: "phone call at work", share: 19, aliases: ["business call", "work call", "office phone call"] },
+    ],
+  },
+  {
+    id: "stock-6",
+    category: "Stock Photos",
+    name: "Cozy laptop desk",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What would most people call the vibe of this image?",
+    consensus: [
+      { label: "study vlog", share: 31, aliases: ["study video", "study session", "study aesthetic"] },
+      { label: "girlboss productivity", share: 27, aliases: ["productivity aesthetic", "girlboss work", "boss babe work"] },
+      { label: "remote work", share: 23, aliases: ["working from home", "home office", "wfh"] },
+      { label: "cozy focus", share: 19, aliases: ["cozy work", "cozy studying", "focus mode"] },
+    ],
+  },
+  {
+    id: "stock-7",
+    category: "Stock Photos",
+    name: "Busy coffee shop",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What would most people think this image is about?",
+    consensus: [
+      { label: "coffee shop work", share: 34, aliases: ["working at coffee shop", "cafe work", "work at cafe"] },
+      { label: "startup hustle", share: 24, aliases: ["hustle culture", "startup grind", "grindset"] },
+      { label: "digital nomad vibe", share: 23, aliases: ["digital nomad", "nomad lifestyle", "remote hustle"] },
+      { label: "people pretending to work", share: 19, aliases: ["fake work", "staged work photo", "fake productivity"] },
+    ],
+  },
+  {
+    id: "stock-8",
+    category: "Stock Photos",
+    name: "Laptop video call",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What would most people think this image is trying to show?",
+    consensus: [
+      { label: "zoom call", share: 37, aliases: ["video call", "online meeting", "video meeting"] },
+      { label: "online class", share: 23, aliases: ["virtual class", "remote class", "online lesson"] },
+      { label: "customer service ad", share: 22, aliases: ["support ad", "customer support", "help desk"] },
+      { label: "therapy session", share: 18, aliases: ["online therapy", "telehealth", "virtual therapy"] },
+    ],
+  },
+  {
+    id: "stock-9",
+    category: "Stock Photos",
+    name: "Group selfie",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What would most people think this image is for?",
+    consensus: [
+      { label: "social campaign", share: 31, aliases: ["campaign photo", "awareness campaign", "community campaign"] },
+      { label: "team selfie", share: 28, aliases: ["group selfie", "group photo", "selfie with friends"] },
+      { label: "friend group post", share: 23, aliases: ["social post", "instagram post", "friends post"] },
+      { label: "diversity ad", share: 18, aliases: ["inclusion ad", "representation ad", "brand campaign"] },
+    ],
+  },
+  {
+    id: "stock-10",
+    category: "Stock Photos",
+    name: "Online shopping outside",
+    visualHint: "Mystery stock photo",
+    description: "A staged image with no caption.",
+    prompt: "What would most people think this image is selling?",
+    consensus: [
+      { label: "online shopping ad", share: 36, aliases: ["shopping ad", "ecommerce ad", "buy online ad"] },
+      { label: "work from anywhere", share: 24, aliases: ["remote work", "work anywhere", "work outside"] },
+      { label: "digital nomad ad", share: 22, aliases: ["nomad ad", "digital nomad", "travel work ad"] },
+      { label: "fake productivity", share: 18, aliases: ["pretend productivity", "staged work", "fake work"] },
+    ],
+  },
+  {
     id: "wiki-1",
     category: "Wikipedia Articles",
     name: "List of unusual deaths",
@@ -124,6 +348,118 @@ const ITEMS = [
       { label: "disco history", share: 25, aliases: ["dance history", "history of dancing", "disco article"] },
       { label: "medical condition", share: 24, aliases: ["disease", "syndrome", "illness"] },
       { label: "internet joke page", share: 18, aliases: ["joke wikipedia page", "meme page", "fake joke page"] },
+    ],
+  },
+  {
+    id: "wiki-3",
+    category: "Wikipedia Articles",
+    name: "Roman dodecahedron",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people think this article is about?",
+    consensus: [
+      { label: "ancient artifact", share: 35, aliases: ["artifact", "old artifact", "ancient object"] },
+      { label: "alien device", share: 26, aliases: ["alien artifact", "ufo device", "weird alien object"] },
+      { label: "dice thing", share: 21, aliases: ["weird dice", "ancient dice", "dice object"] },
+      { label: "ritual object", share: 18, aliases: ["ceremonial object", "ritual device", "ritual artifact"] },
+    ],
+  },
+  {
+    id: "wiki-4",
+    category: "Wikipedia Articles",
+    name: "Voynich manuscript",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people think this article is about?",
+    consensus: [
+      { label: "secret code book", share: 37, aliases: ["coded book", "encrypted book", "secret manuscript"] },
+      { label: "fake language", share: 24, aliases: ["made-up language", "alien language", "weird language"] },
+      { label: "cursed manuscript", share: 22, aliases: ["haunted book", "cursed book", "mystery manuscript"] },
+      { label: "medieval doodles", share: 17, aliases: ["old doodles", "medieval drawings", "weird drawings"] },
+    ],
+  },
+  {
+    id: "wiki-5",
+    category: "Wikipedia Articles",
+    name: "Jacques de Falaise",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people guess this article covers?",
+    consensus: [
+      { label: "weird medical case", share: 33, aliases: ["medical oddity", "strange medical story", "weird illness"] },
+      { label: "circus performer", share: 27, aliases: ["sideshow act", "circus act", "performer"] },
+      { label: "historical oddity", share: 22, aliases: ["weird historical person", "historical curiosity", "odd history"] },
+      { label: "fake wikipedia page", share: 18, aliases: ["made up wikipedia page", "satire page", "fake wiki page"] },
+    ],
+  },
+  {
+    id: "wiki-6",
+    category: "Wikipedia Articles",
+    name: "Bloop",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people think this article is about?",
+    consensus: [
+      { label: "ocean mystery", share: 34, aliases: ["sea mystery", "underwater mystery", "ocean sound mystery"] },
+      { label: "conspiracy map", share: 24, aliases: ["conspiracy chart", "mystery map", "strange map"] },
+      { label: "underwater aliens", share: 23, aliases: ["sea aliens", "alien ocean thing", "alien signal"] },
+      { label: "earthquake data", share: 19, aliases: ["seismic map", "ocean data", "science map"] },
+    ],
+  },
+  {
+    id: "wiki-7",
+    category: "Wikipedia Articles",
+    name: "Morse code",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people guess this article covers?",
+    consensus: [
+      { label: "old spy code", share: 36, aliases: ["spy code", "secret code", "old secret code"] },
+      { label: "radio alphabet", share: 25, aliases: ["radio code", "signal alphabet", "ham radio code"] },
+      { label: "military signal chart", share: 22, aliases: ["signal chart", "military code chart", "code poster"] },
+      { label: "puzzle key", share: 17, aliases: ["cipher key", "puzzle chart", "decoder key"] },
+    ],
+  },
+  {
+    id: "wiki-8",
+    category: "Wikipedia Articles",
+    name: "Mammatus clouds",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people think this article is about?",
+    consensus: [
+      { label: "apocalyptic weather", share: 32, aliases: ["end of the world clouds", "storm doom sky", "apocalypse sky"] },
+      { label: "weird cloud type", share: 28, aliases: ["strange cloud", "rare cloud", "odd cloud formation"] },
+      { label: "storm sign", share: 23, aliases: ["storm warning", "weather warning", "storm cloud"] },
+      { label: "fake sky phenomenon", share: 17, aliases: ["photoshopped clouds", "fake weather", "made-up cloud thing"] },
+    ],
+  },
+  {
+    id: "wiki-9",
+    category: "Wikipedia Articles",
+    name: "Antikythera Mechanism",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people think this article is about?",
+    consensus: [
+      { label: "ancient machine", share: 35, aliases: ["old machine", "ancient device", "old mechanism"] },
+      { label: "astronomical clock", share: 24, aliases: ["star clock", "space clock", "ancient clock"] },
+      { label: "lost technology", share: 23, aliases: ["ancient tech", "lost tech", "mysterious technology"] },
+      { label: "weird artifact", share: 18, aliases: ["strange artifact", "artifact machine", "mystery object"] },
+    ],
+  },
+  {
+    id: "wiki-10",
+    category: "Wikipedia Articles",
+    name: "Face on Mars",
+    visualHint: "Mystery article preview",
+    description: "You get a visual preview, not the real title.",
+    prompt: "What would most people think this article is about?",
+    consensus: [
+      { label: "alien cover-up", share: 34, aliases: ["ufo cover up", "nasa cover up", "alien conspiracy"] },
+      { label: "mars photo", share: 26, aliases: ["photo of mars", "mars picture", "martian face photo"] },
+      { label: "conspiracy article", share: 22, aliases: ["conspiracy page", "weird conspiracy", "mars conspiracy"] },
+      { label: "nasa glitch", share: 18, aliases: ["space glitch", "photo glitch", "image glitch"] },
     ],
   },
   {
@@ -649,11 +985,19 @@ function buildIllustration(item, style) {
       </defs>
       <rect width="640" height="448" fill="url(#bg)" />
       <rect x="20" y="20" width="600" height="408" rx="28" fill="rgba(255,250,241,0.14)" stroke="rgba(255,250,241,0.22)" />
-      ${art[item.id]}
+      ${art[item.id] || buildGenericArt(item, style)}
     </svg>
   `;
 
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function buildGenericArt(item, style) {
+  return `
+    <circle cx="320" cy="168" r="92" fill="rgba(255,250,241,0.16)" />
+    <text x="320" y="228" text-anchor="middle" font-size="120">${style.emoji}</text>
+    <text x="320" y="332" text-anchor="middle" font-size="28" fill="rgba(255,250,241,0.86)" font-family="IBM Plex Sans, sans-serif">${item.category}</text>
+  `;
 }
 
 init();

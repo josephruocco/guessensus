@@ -38,6 +38,78 @@
       "attribution": "Gigli by Popo le Chien via Wikimedia Commons, CC0"
     },
     {
+      "id": "pasta-3",
+      "image": "./assets/images/pasta-3.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Orecchiette_Pasta.JPG",
+      "title": "Orecchiette Pasta",
+      "creator": "Travis K. Witt",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Orecchiette Pasta by Travis K. Witt via Wikimedia Commons, CC BY-SA 3.0"
+    },
+    {
+      "id": "pasta-4",
+      "image": "./assets/images/pasta-4.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Trofie_pasta_macro.jpg",
+      "title": "Trofie pasta macro",
+      "creator": "Tom dl",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Trofie pasta macro by Tom dl via Wikimedia Commons, CC BY-SA 3.0"
+    },
+    {
+      "id": "pasta-5",
+      "image": "./assets/images/pasta-5.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mafaldine.JPG",
+      "title": "Mafaldine",
+      "creator": "AchilleT",
+      "license": "Public Domain",
+      "attribution": "Mafaldine via Wikimedia Commons, Public Domain"
+    },
+    {
+      "id": "pasta-6",
+      "image": "./assets/images/pasta-6.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Casarecce.jpg",
+      "title": "Casarecce",
+      "creator": "Elcochan",
+      "license": "CC0",
+      "attribution": "Casarecce by Elcochan via Wikimedia Commons, CC0"
+    },
+    {
+      "id": "pasta-7",
+      "image": "./assets/images/pasta-7.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Pipe_rigate_top.jpg",
+      "title": "Pipe rigate top",
+      "creator": "Popo le Chien",
+      "license": "CC0",
+      "attribution": "Pipe rigate top by Popo le Chien via Wikimedia Commons, CC0"
+    },
+    {
+      "id": "pasta-8",
+      "image": "./assets/images/pasta-8.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/UncookedFregula.jpg",
+      "title": "Uncooked Fregula",
+      "creator": "Emily Parkhurst",
+      "license": "CC BY-SA 2.0",
+      "attribution": "Uncooked Fregula by Emily Parkhurst via Wikimedia Commons, CC BY-SA 2.0"
+    },
+    {
+      "id": "pasta-9",
+      "image": "./assets/images/pasta-9.png",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Conchiglie_rigate.png",
+      "title": "Conchiglie rigate",
+      "creator": "Popo le Chien",
+      "license": "CC0",
+      "attribution": "Conchiglie rigate by Popo le Chien via Wikimedia Commons, CC0"
+    },
+    {
+      "id": "pasta-10",
+      "image": "./assets/images/pasta-10.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Gemelli.jpg",
+      "title": "Gemelli",
+      "creator": "Unknown",
+      "license": "Public Domain",
+      "attribution": "Gemelli via Wikimedia Commons, Public Domain"
+    },
+    {
       "id": "stock-1",
       "image": "./assets/images/stock-1.jpg",
       "sourceUrl": "https://www.pexels.com/photo/women-having-healthy-lunch-in-office-8547626/",
@@ -56,6 +128,78 @@
       "attribution": "Person Sitting on Bench with Laptop Near Sea by RDNE Stock project via Pexels"
     },
     {
+      "id": "stock-3",
+      "image": "./assets/images/stock-3.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Business_agreement_handshake_at_coffee_shop.jpg",
+      "title": "Business agreement handshake at coffee shop",
+      "creator": "rawpixel.com",
+      "license": "CC0",
+      "attribution": "Business agreement handshake at coffee shop by rawpixel.com via Wikimedia Commons, CC0"
+    },
+    {
+      "id": "stock-4",
+      "image": "./assets/images/stock-4.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Dean_Rusk%2C_Lyndon_B._Johnson_and_Robert_McNamara_in_Cabinet_Room_meeting_February_1968.jpg",
+      "title": "Cabinet Room meeting February 1968",
+      "creator": "Yoichi Okamoto",
+      "license": "Public Domain",
+      "attribution": "Cabinet Room meeting February 1968 by Yoichi Okamoto via Wikimedia Commons, Public Domain"
+    },
+    {
+      "id": "stock-5",
+      "image": "./assets/images/stock-5.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/A_cup_of_coffee_on_an_office_table_with_a_woman_on_the_phone_laughing_in_a_blurry_background._%2851537030534%29.jpg",
+      "title": "A cup of coffee on an office table with a woman on the phone laughing in a blurry background",
+      "creator": "Unknown",
+      "license": "CC BY 2.0",
+      "attribution": "Coffee on office table with woman on phone via Wikimedia Commons, CC BY 2.0"
+    },
+    {
+      "id": "stock-6",
+      "image": "./assets/images/stock-6.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Young_woman_studying_at_a_desk_with_snacks_and_a_laptop_in_a_cozy_room.jpg",
+      "title": "Young woman studying at a desk with snacks and a laptop in a cozy room",
+      "creator": "Unknown",
+      "license": "CC BY 2.0",
+      "attribution": "Young woman studying at a desk with snacks and a laptop via Wikimedia Commons, CC BY 2.0"
+    },
+    {
+      "id": "stock-7",
+      "image": "./assets/images/stock-7.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Busy_people_at_a_coffee_shop_%28Unsplash%29.jpg",
+      "title": "Busy people at a coffee shop",
+      "creator": "Unsplash",
+      "license": "CC0",
+      "attribution": "Busy people at a coffee shop via Wikimedia Commons, CC0"
+    },
+    {
+      "id": "stock-8",
+      "image": "./assets/images/stock-8.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Cheerful_woman_smiling_and_making_gestures_with_her_hands_while_talking_on_a_video_call_on_her_laptop.jpg",
+      "title": "Cheerful woman smiling and making gestures while talking on a video call on her laptop",
+      "creator": "Unknown",
+      "license": "CC BY 2.0",
+      "attribution": "Cheerful woman talking on a video call on her laptop via Wikimedia Commons, CC BY 2.0"
+    },
+    {
+      "id": "stock-9",
+      "image": "./assets/images/stock-9.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Disabled_BIPOC_taking_a_selfie.jpg",
+      "title": "Disabled BIPOC taking a selfie",
+      "creator": "Disabled And Here",
+      "license": "CC BY 4.0",
+      "attribution": "Disabled BIPOC taking a selfie by Disabled And Here via Wikimedia Commons, CC BY 4.0"
+    },
+    {
+      "id": "stock-10",
+      "image": "./assets/images/stock-10.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Woman_online_shopping_concept._Woman_in_the_green_park_with_modern_laptop._Bali_island._%2846933867545%29.jpg",
+      "title": "Woman online shopping concept with modern laptop",
+      "creator": "Unknown",
+      "license": "CC BY 2.0",
+      "attribution": "Woman online shopping concept with modern laptop via Wikimedia Commons, CC BY 2.0"
+    },
+    {
       "id": "wiki-1",
       "image": "./assets/images/wiki-1.jpg",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Der_Tod_des_Aeschylus_in_der_Florentinischen_Bilderchronik.jpg",
@@ -72,6 +216,78 @@
       "creator": "Wellcome Collection",
       "license": "CC BY 4.0",
       "attribution": "The dancing mania, by Hondius via Wellcome Collection on Wikimedia Commons, CC BY 4.0"
+    },
+    {
+      "id": "wiki-3",
+      "image": "./assets/images/wiki-3.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Roman_dodecahedron.jpg",
+      "title": "Roman dodecahedron",
+      "creator": "Unknown",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Roman dodecahedron via Wikimedia Commons, CC BY-SA 3.0"
+    },
+    {
+      "id": "wiki-4",
+      "image": "./assets/images/wiki-4.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Voynich_Manuscript_-_folio_1r_d%C3%A9tail.jpg",
+      "title": "Voynich Manuscript - folio 1r detail",
+      "creator": "Unknown",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Voynich Manuscript folio 1r detail via Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+      "id": "wiki-5",
+      "image": "./assets/images/wiki-5.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Le_polyphage_Jacques_de_Falaise.jpg",
+      "title": "Le polyphage Jacques de Falaise",
+      "creator": "Unknown",
+      "license": "Public Domain",
+      "attribution": "Le polyphage Jacques de Falaise via Wikimedia Commons, Public Domain"
+    },
+    {
+      "id": "wiki-6",
+      "image": "./assets/images/wiki-6.png",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Bloop_locations.png",
+      "title": "Bloop locations",
+      "creator": "Unknown",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Bloop locations via Wikimedia Commons, CC BY-SA 3.0"
+    },
+    {
+      "id": "wiki-7",
+      "image": "./assets/images/wiki-7.png",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Lettres_en_code_Morse_fr_en.png",
+      "title": "Lettres en code Morse fr en",
+      "creator": "F1jmm",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Morse code chart by F1jmm via Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+      "id": "wiki-8",
+      "image": "./assets/images/wiki-8.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Mammatus_cloud_panorama.jpg",
+      "title": "Mammatus cloud panorama",
+      "creator": "fir0002",
+      "license": "GFDL 1.2",
+      "attribution": "Mammatus cloud panorama by fir0002 via Wikimedia Commons, GFDL 1.2"
+    },
+    {
+      "id": "wiki-9",
+      "image": "./assets/images/wiki-9.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Antikythera_Mechanism_%28NAMA%29_2017.jpg",
+      "title": "Antikythera Mechanism (NAMA) 2017",
+      "creator": "Unknown",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Antikythera Mechanism (NAMA) 2017 via Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+      "id": "wiki-10",
+      "image": "./assets/images/wiki-10.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Face_on_Mars_with_Inset.jpg",
+      "title": "Face on Mars with Inset",
+      "creator": "Unknown",
+      "license": "Public Domain",
+      "attribution": "Face on Mars with Inset via Wikimedia Commons, Public Domain"
     },
     {
       "id": "mush-1",
