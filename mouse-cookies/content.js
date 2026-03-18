@@ -20,7 +20,8 @@
     heartTimeout: null,
     retreatTimeout: null,
     hideTimeout: null,
-    activeBanner: null
+    activeBanner: null,
+    side: "right"
   };
 
   const root = document.createElement("div");
@@ -56,6 +57,22 @@
     return Math.max(min, Math.min(max, value));
   }
 
+  function getPageSide() {
+    const seed = `${window.location.hostname}${window.location.pathname}`;
+    let hash = 0;
+
+    for (let index = 0; index < seed.length; index += 1) {
+      hash = (hash * 31 + seed.charCodeAt(index)) >>> 0;
+    }
+
+    return hash % 2 === 0 ? "left" : "right";
+  }
+
+  function applyMouseSide() {
+    root.classList.remove("side-left", "side-right");
+    root.classList.add(`side-${state.side}`);
+  }
+
   function setCookiePosition(cookie, x, y) {
     cookie.style.left = `${x}px`;
     cookie.style.top = `${y}px`;
@@ -82,39 +99,95 @@
     );
   }
 
+  function getElementHintText(element) {
+    return normalizeText(
+      [
+        element.id,
+        element.className,
+        element.getAttribute("aria-label"),
+        element.getAttribute("role"),
+        element.getAttribute("data-testid"),
+        element.getAttribute("data-test")
+      ]
+        .filter(Boolean)
+        .join(" ")
+    );
+  }
+
+  function hasCookieHint(element) {
+    return /\b(cookie|consent|onetrust|cookiebot|termly|privacy|truste|gdpr|ccpa)\b/i.test(
+      getElementHintText(element)
+    );
+  }
+
+  function isEdgeAnchored(rect) {
+    return (
+      rect.bottom >= window.innerHeight - 16 ||
+      rect.top <= 16 ||
+      rect.left <= 16 ||
+      rect.right >= window.innerWidth - 16
+    );
+  }
+
   function getBannerScore(element) {
     if (!isVisibleElement(element)) {
       return 0;
     }
 
     const text = normalizeText(element.textContent).slice(0, 1200);
-    if (!COOKIE_CONTEXT_PATTERN.test(text)) {
+    const hintText = getElementHintText(element);
+    const hasTextContext = COOKIE_CONTEXT_PATTERN.test(text);
+    const hasHintContext = hasCookieHint(element);
+    if (!hasTextContext && !hasHintContext) {
       return 0;
     }
 
     const rect = element.getBoundingClientRect();
-    let score = 1;
-
-    if (COOKIE_DECISION_PATTERN.test(text)) {
-      score += 2;
-    }
-
+    let score = 0;
     const style = window.getComputedStyle(element);
-    if (style.position === "fixed" || style.position === "sticky") {
+    const role = normalizeText(element.getAttribute("role"));
+    const buttonCount = element.querySelectorAll("button, [role='button'], a, input[type='button'], input[type='submit']").length;
+    const isFixedLike = style.position === "fixed" || style.position === "sticky";
+    const edgeAnchored = isEdgeAnchored(rect);
+    const isDialogLike =
+      role === "dialog" ||
+      role === "alertdialog" ||
+      element.getAttribute("aria-modal") === "true";
+
+    if (hasHintContext) {
+      score += 4;
+    }
+
+    if (hasTextContext) {
       score += 2;
     }
 
-    if (rect.bottom >= window.innerHeight - 16 || rect.top <= 16) {
+    if (COOKIE_DECISION_PATTERN.test(text) && buttonCount >= 1) {
       score += 2;
     }
 
-    if (rect.width >= window.innerWidth * 0.4) {
+    if (isFixedLike) {
+      score += 2;
+    }
+
+    if (edgeAnchored) {
+      score += 2;
+    }
+
+    if (isDialogLike) {
+      score += 2;
+    }
+
+    if (rect.width >= window.innerWidth * 0.35) {
       score += 1;
     }
 
-    const buttonCount = element.querySelectorAll("button, [role='button'], a, input[type='button'], input[type='submit']").length;
     if (buttonCount >= 2) {
       score += 1;
+    }
+
+    if (!(isFixedLike || edgeAnchored || isDialogLike || hasHintContext)) {
+      return 0;
     }
 
     return score;
@@ -133,7 +206,7 @@
       }
     }
 
-    return winnerScore >= 4 ? winner : null;
+    return winnerScore >= 7 ? winner : null;
   }
 
   function updateStageVisibility() {
@@ -379,6 +452,8 @@
   });
 
   window.addEventListener("resize", updateStageVisibility);
+  state.side = getPageSide();
+  applyMouseSide();
   window.setInterval(refreshBannerState, SCAN_INTERVAL_MS);
   refreshBannerState();
 })();
